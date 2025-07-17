@@ -130,7 +130,7 @@ func validateQdrantPort(parsedUrl *url.URL, port int) error {
 
 	// Warn about HTTPS with port 443 (likely REST endpoint)
 	if parsedUrl.Scheme == HTTPS && port == HTTPS_DEFAULT_PORT {
-		pterm.Warning.Printfln("Using HTTPS with port %d. Qdrant cloud instances typically serve REST on port %d and GRPC on port %d", HTTPS_DEFAULT_PORT, HTTPS_DEFAULT_PORT, QDRANT_GRPC_PORT)
+		pterm.Warning.Printfln("Using HTTPS with port %d. Qdrant typically serves REST on port %d and GRPC on port %d", HTTPS_DEFAULT_PORT, HTTPS_DEFAULT_PORT, QDRANT_GRPC_PORT)
 		pterm.Warning.Printfln("If you encounter connection issues, try specifying the GRPC port explicitly: %s:%d", parsedUrl.Host, QDRANT_GRPC_PORT)
 	}
 
